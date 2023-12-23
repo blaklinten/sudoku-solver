@@ -1,7 +1,7 @@
 #include <stdlib.h>
 
 #include "../src/models/sudoku.h"
-#include "utils.h"
+#include "../src/utils.h"
 
 Sudoku solved = {1, 2, 3, 4, 5, 6, 7, 8, 9,
                  4, 5, 6, 7, 8, 9, 1, 2, 3,

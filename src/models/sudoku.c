@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include "sudoku.h"
+#include "../utils.h"
 
 bool is_solved(Sudoku *s){
   for( int i = 0; i < GROUP_SIZE; i++){
@@ -56,3 +57,15 @@ Sudoku_group *get_box(int box_number, Sudoku *s) {
   }
   return box;
 }
+
+bool groups_equals(Sudoku_group *first, Sudoku_group *second) {
+  for (int i = 0; i < GROUP_SIZE; i++) {
+    if ((*first)[i] != (*second)[i]) {
+      s_log(ERROR, __func__, "Groups differ at locaion %d; %d != %d", i,
+            (*first)[i], (*second)[i]);
+      return false;
+    }
+  }
+  return true;
+}
+

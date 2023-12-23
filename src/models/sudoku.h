@@ -15,5 +15,6 @@ bool is_solved(Sudoku *);
 Sudoku_group *get_row(int, Sudoku *);
 Sudoku_group *get_column(int, Sudoku *);
 Sudoku_group *get_box(int, Sudoku *);
+bool groups_equals(Sudoku_group *, Sudoku_group *);
 
 #endif // !SUDOKU
