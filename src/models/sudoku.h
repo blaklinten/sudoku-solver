@@ -10,10 +10,10 @@
 typedef int Sudoku_group[GROUP_SIZE];
 typedef int Sudoku[SUDOKU_SIZE];
 
-bool is_solved_group(Sudoku_group);
-bool is_solved(Sudoku);
-Sudoku_group *get_row(int, Sudoku);
-Sudoku_group *get_column(int, Sudoku);
-Sudoku_group *get_box(int, Sudoku);
+bool is_solved_group(Sudoku_group *);
+bool is_solved(Sudoku *);
+Sudoku_group *get_row(int, Sudoku *);
+Sudoku_group *get_column(int, Sudoku *);
+Sudoku_group *get_box(int, Sudoku *);
 
 #endif // !SUDOKU
