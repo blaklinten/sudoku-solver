@@ -5,6 +5,24 @@
 
 #include "utils.h"
 
+Sudoku * get_copy(Sudoku *s){
+  Sudoku *new = malloc(sizeof(Sudoku));
+  for(int i = 0; i < SUDOKU_SIZE; i++){
+    (*new)[i] = (*s)[i];
+  }
+  return new;
+}
+
+void s_print(Sudoku *s){
+  for(int i = 0; i < GROUP_SIZE; i++){
+    for(int j = 0; j < GROUP_SIZE; j++){
+    printf("%d", (*s)[i * GROUP_SIZE + j]);
+    }
+    printf("\n");
+  }
+  printf("---------\n");
+}
+
 Sudoku *get_sudoku_from_stdin() {
 
   char user_input[SUDOKU_SIZE * 2 + 1];
