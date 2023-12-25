@@ -17,14 +17,11 @@ Sudoku unfinished = {0, 0, 0, 0, 0, 2, 1, 5, 7,
 
 int main(int argc, char *argv[]) {
   printf("Hello Sudoku! \n");
-  brute_force_single_thread(&unfinished);
+  for(int i = 0; i < 1000; i++){
+    brute_force_single_thread(&unfinished);
+  }
   s_print(&unfinished);
   // Sudoku *s = get_sudoku_from_stdin();
-
-  // if(!is_solved(s)){
-  //   brute_force_single_thread(s);
-  // }
-
   // free(s);
   return EXIT_SUCCESS;
 }
