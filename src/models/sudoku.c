@@ -69,3 +69,35 @@ bool groups_equals(Sudoku_group *first, Sudoku_group *second) {
   return true;
 }
 
+bool is_valid_position_for_number(int sudoku_number, Sudoku *s, int position_index){
+  int assert_mask = 1 << sudoku_number;
+
+  int row_mask = 0;
+  Sudoku_group *row = get_row_for_index(position_index, s);
+  for (int i = 0; i < GROUP_SIZE; i++) {
+    row_mask = row_mask | 1 << (*row)[i];
+  };
+  if(row_mask & assert_mask){
+    return false;
+  }
+
+  int column_mask = 0;
+  Sudoku_group *column = get_column_for_index(position_index, s);
+  for (int i = 0; i < GROUP_SIZE; i++) {
+    column_mask = column_mask | 1 << (*column)[i];
+  };
+  if(column_mask & assert_mask){
+    return false;
+  }
+
+  int box_mask = 0;
+  for (int i = 0; i < GROUP_SIZE; i++) {
+  Sudoku_group *box = get_box_for_index(position_index, s);
+    box_mask = box_mask | 1 << (*box)[i];
+  };
+  if(box_mask & assert_mask){
+    return false;
+  }
+
+  return true;
+}
