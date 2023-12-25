@@ -1,5 +1,5 @@
 #include "solver.h"
-#include "models/sudoku.h"
+#include "sudoku.h"
 #include "utils.h"
 #include <stdlib.h>
 

@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include "sudoku.h"
-#include "../utils.h"
+#include "utils.h"
 
 bool is_solved(Sudoku *s){
   for( int i = 0; i < GROUP_SIZE; i++){
