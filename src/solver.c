@@ -44,6 +44,7 @@ void brute_force_single_thread(Sudoku *original){
       while((*original)[i]){
         i--;
       }
+      // To counter the for-loop i++
       i--;
       continue;
     }
@@ -57,8 +58,8 @@ void brute_force_single_thread(Sudoku *original){
 
     //Debug purpose
     s_print(working_copy);
-    char tmp[2];
-    fgets(tmp, 2, stdin);
+    // char tmp[2];
+    // fgets(tmp, 2, stdin);
   }
 }
 

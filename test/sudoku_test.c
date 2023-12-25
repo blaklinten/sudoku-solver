@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 
 #include "../src/models/sudoku.h"
@@ -376,6 +377,11 @@ bool test_is_solved() {
 }
 
 int main(int argc, char *argv[]) {
+  
+  if(!getenv("SUDOKU_LOG_LEVEL")){
+    printf("No log level set. You might want one for testing...\n");
+  }
+
   s_log(INFO, __func__, "Hello tester!");
 
   return EXIT_SUCCESS || !(test_is_solved_group() &&
