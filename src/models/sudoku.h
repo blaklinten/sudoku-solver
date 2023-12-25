@@ -12,9 +12,10 @@ typedef int Sudoku[SUDOKU_SIZE];
 
 bool is_solved_group(Sudoku_group *);
 bool is_solved(Sudoku *);
-Sudoku_group *get_row(int, Sudoku *);
-Sudoku_group *get_column(int, Sudoku *);
-Sudoku_group *get_box(int, Sudoku *);
+Sudoku_group *get_row_for_index(int, Sudoku *);
+Sudoku_group *get_column_for_index(int, Sudoku *);
+Sudoku_group *get_box_for_index(int, Sudoku *);
 bool groups_equals(Sudoku_group *, Sudoku_group *);
+bool is_valid_position_for_number(int, Sudoku *, int);
 
 #endif // !SUDOKU
