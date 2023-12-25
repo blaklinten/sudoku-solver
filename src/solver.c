@@ -1,7 +1,6 @@
 #include "solver.h"
 #include "models/sudoku.h"
 #include "utils.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 void shuffle_until_solved(Sudoku *s){
@@ -17,10 +16,10 @@ void shuffle_until_solved(Sudoku *s){
         (*temp)[i]= rand() % 9;
       }
     }
-    printf("Current try:\n");
+    s_log(INFO, __func__, "Current try:\n");
     s_print(temp);
   }
-  printf("Solved!\nSolution is:\n");
+  s_log(SUCCESS, __func__, "Solved!\nSolution is:\n");
   s_print(temp);
 }
 

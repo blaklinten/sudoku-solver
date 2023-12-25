@@ -8,7 +8,7 @@
 #define ANSI_COLOR_YELLOW "\x1b[33m"
 #define ANSI_COLOR_RESET "\x1b[0m"
 
-typedef enum { INFO, ERROR, SUCCESS } LOG_LEVEL;
+typedef enum { ERROR, SUCCESS, INFO } LOG_LEVEL;
 
 /**
  * s_ to not override built in function log from math.h
