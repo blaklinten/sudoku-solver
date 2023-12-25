@@ -14,6 +14,10 @@ Sudoku * get_copy(Sudoku *s){
 }
 
 void s_print(Sudoku *s){
+  char *system_log_level = getenv("SUDOKU_LOG_LEVEL");
+  if((!system_log_level) || atoi(system_log_level) < INFO){
+    return;
+  }
   for(int i = 0; i < GROUP_SIZE; i++){
     for(int j = 0; j < GROUP_SIZE; j++){
     printf("%d", (*s)[i * GROUP_SIZE + j]);
@@ -41,6 +45,10 @@ Sudoku *get_sudoku_from_stdin() {
 }
 
 void s_log(LOG_LEVEL level, const char *func, ...) {
+  char *system_log_level = getenv("SUDOKU_LOG_LEVEL");
+  if((!system_log_level) || atoi(system_log_level) < level){
+    return;
+  }
   va_list args;
   va_start(args, func);
   char *info = va_arg(args, char *);
