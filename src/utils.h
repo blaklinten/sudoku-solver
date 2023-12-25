@@ -14,7 +14,9 @@ typedef enum { INFO, ERROR, SUCCESS } LOG_LEVEL;
  * s_ to not override built in function log from math.h
  **/
 void s_log(LOG_LEVEL, const char *, ...);
+void s_print(Sudoku *);
 
 Sudoku *get_sudoku_from_stdin();
+Sudoku *get_copy(Sudoku *);
 
 #endif // !DEBUG
