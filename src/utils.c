@@ -7,48 +7,31 @@
 
 #include "utils.h"
 
-Sudoku * get_copy(Sudoku *s){
+Sudoku *get_copy(Sudoku *s) {
   Sudoku *new = malloc(sizeof(Sudoku));
-  for(int i = 0; i < SUDOKU_SIZE; i++){
+  for (int i = 0; i < SUDOKU_SIZE; i++) {
     (*new)[i] = (*s)[i];
   }
   return new;
 }
 
-void s_print(Sudoku *s){
+void s_print(Sudoku *s) {
   char *system_log_level = getenv("SUDOKU_LOG_LEVEL");
-  if((!system_log_level) || atoi(system_log_level) < INFO){
+  if ((!system_log_level) || atoi(system_log_level) < INFO) {
     return;
   }
-  for(int i = 0; i < GROUP_SIZE; i++){
-    for(int j = 0; j < GROUP_SIZE; j++){
-    printf("%d", (*s)[i * GROUP_SIZE + j]);
+  for (int i = 0; i < GROUP_SIZE; i++) {
+    for (int j = 0; j < GROUP_SIZE; j++) {
+      printf("%d", (*s)[i * GROUP_SIZE + j]);
     }
     printf("\n");
   }
   printf("---------\n");
 }
 
-Sudoku *get_sudoku_from_stdin() {
-
-  char user_input[SUDOKU_SIZE * 2 + 1];
-  printf("Input sudoku numbers as rows, numbers seperated with comma \",\".\n");
-  int characters_read = strlen(fgets(user_input, sizeof(user_input), stdin));
-  if (characters_read != SUDOKU_SIZE * 2) {
-    printf("LOL, wrong number of characters. I read %d, wanted %d\n",
-           characters_read, SUDOKU_SIZE * 2);
-    exit(1);
-  };
-  Sudoku *s = malloc(sizeof(Sudoku));
-  for (int i = 0, j = 0; i < SUDOKU_SIZE; i++, j++) {
-    (*s)[i] = atoi(&user_input[j++]);
-  }
-  return s;
-}
-
 void s_log(LOG_LEVEL level, const char *func, ...) {
   char *system_log_level = getenv("SUDOKU_LOG_LEVEL");
-  if((!system_log_level) || atoi(system_log_level) < level){
+  if ((!system_log_level) || atoi(system_log_level) < level) {
     return;
   }
   va_list args;

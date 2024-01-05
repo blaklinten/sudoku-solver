@@ -2,6 +2,7 @@
 #include "sudoku.h"
 #include "utils.h"
 #include <stdlib.h>
+// #include <stdio.h>
 
 void shuffle_until_solved(Sudoku *s){
   s_log(INFO, __func__, "Attempting shuffle solution");
@@ -28,8 +29,10 @@ void brute_force_single_thread(Sudoku *original){
   Sudoku *working_copy = get_copy(original);
   s_log(INFO, __func__, "Copy of input sudoku:");
   s_print(working_copy);
+  int loop_count = 0;
   // Solving loop BEGIN
   for(int i = 0; i < SUDOKU_SIZE; i++){
+    loop_count++;
     if(i < 0){
       s_log(ERROR, __func__, "No solution found :(");
       exit(1);
@@ -57,9 +60,10 @@ void brute_force_single_thread(Sudoku *original){
     }
 
     //Debug purpose
-    s_print(working_copy);
+    // s_print(working_copy);
     // char tmp[2];
     // fgets(tmp, 2, stdin);
   }
+  s_log(INFO, __func__, "Solved! It only took %d increments (:", loop_count);
+  s_print(working_copy);
 }
-
