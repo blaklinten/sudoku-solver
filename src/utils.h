@@ -17,6 +17,7 @@ void s_log(LOG_LEVEL, const char *, ...);
 void s_print(Sudoku *);
 
 Sudoku *get_sudoku_from_stdin();
+Sudoku_list get_sudokus_from_file(const char*);
 Sudoku *get_copy(Sudoku *);
 
 #endif // !DEBUG
