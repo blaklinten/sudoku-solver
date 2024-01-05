@@ -10,6 +10,11 @@
 typedef int Sudoku_group[GROUP_SIZE];
 typedef int Sudoku[SUDOKU_SIZE];
 
+typedef struct {
+  int size;
+  Sudoku **list;
+} Sudoku_list;
+
 bool is_solved_group(Sudoku_group *);
 bool is_solved(Sudoku *);
 Sudoku_group *get_row_for_index(int, Sudoku *);
