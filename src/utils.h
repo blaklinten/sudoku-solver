@@ -1,4 +1,4 @@
-#ifndef DEBUG
+#ifndef UTILS
 #define UTILS
 
 #include "sudoku.h"
@@ -20,4 +20,4 @@ Sudoku *get_sudoku_from_stdin();
 Sudoku_list get_sudokus_from_file(const char*);
 Sudoku *get_copy(Sudoku *);
 
-#endif // !DEBUG
+#endif // !UTILS
